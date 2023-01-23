@@ -25,7 +25,7 @@ module "networking" {
   subnet_address_prefixes = var.subnet_address_prefixes
 }
 module "webserver" {
-  source  = "app.terraform.io/YOUR_ORG_NAME/webserver/azurerm"
+  source  = "app.terraform.io/AnwarTF-Lab/webserver/azurerm"
   version = "0.12.0"
 
   name      = var.name
@@ -37,19 +37,12 @@ module "webserver" {
 }
 
 module "appserver" {
-  source  = "app.terraform.io/YOUR_ORG_NAME/appserver/azurerm"
+  source  = "app.terraform.io/AnwarTF-Lab/appserver/azurerm"
   version = "0.12.0"
-
-  name      = var.name
-  location  = var.location
-  subnet_id = module.networking.subnet-ids[1]
-  vm_count  = 1
-  username  = var.username
-  password  = var.password
+  # insert required variables here
 }
-
 module "dataserver" {
-  source  = "app.terraform.io/YOUR_ORG_NAME/dataserver/azurerm"
+  source  = "app.terraform.io/AnwarTF-Lab/dataserver/azurerm"
   version = "0.12.0"
 
   name      = var.name
